@@ -3,154 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mass - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header p {
-            font-size: 1.2rem;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        section {
-            background: white;
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
-        
-        .project {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            border-left: 4px solid #667eea;
-            background: #f9f9f9;
-        }
-        
-        .project h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project a {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .project a:hover {
-            text-decoration: underline;
-        }
-        
-        ul {
-            list-style-position: inside;
-            margin-left: 1rem;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #333;
-            color: white;
-            margin-top: 2rem;
-        }
-    </style>
+    <title>Massimo Padula - Software Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <p>Software Developer | Student</p>
-    </header>
-
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am a software development student with experience in Android development, web development, and game development. I enjoy building practical applications that solve real-world problems.</p>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <ul>
-                <li>Android Development - Kotlin, Java, Room Database</li>
-                <li>Web Development - ASP.NET Core, HTML, CSS, JavaScript</li>
-                <li>Game Development - Unity, Physics Engines</li>
-                <li>Database - SQL, Entity Framework</li>
-                <li>Version Control - Git, GitHub</li>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">Massimo Padula</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-        </section>
+        </div>
+    </nav>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            
-            <div class="project">
-                <h3>Doober - Medication Delivery App</h3>
-                <p>An Android application designed to help older adults order and receive their medications. Built with Kotlin using MVVM architecture, Room database, and Firebase integration.</p>
-                <a href="https://github.com/yourusername/doober" target="_blank">View on GitHub →</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Massimo Padula</span></h1>
+            <h2>Software Developer & Computer Science Student</h2>
+            <p class="hero-description">
+                Building innovative solutions through code
+            </p>
+            <div class="hero-buttons">
+                <a href="projects.html" class="btn btn-primary">View My Work</a>
+                <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
             </div>
+        </div>
+    </section>
 
-            <div class="project">
-                <h3>Project Name 2</h3>
-                <p>Brief description of another project you've worked on.</p>
-                <a href="https://github.com/yourusername/project2" target="_blank">View on GitHub →</a>
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Background</h3>
+                    <p>
+                        I am currently a student in the <strong>Computer Science program</strong> 
+                        at John Abbott College (August 2023-2026), with a focus on full-stack development 
+                        and software engineering. I have achieved academic excellence by making the Dean's 
+                        List four times, demonstrating my commitment to learning and technical growth.
+                    </p>
+                    
+                    <h3>Professional Interests</h3>
+                    <p>
+                        I am passionate about creating practical applications that solve real-world problems. 
+                        My main interests include:
+                    </p>
+                    <ul class="interests-list">
+                        <li><strong>Full-Stack Development:</strong> Building complete web applications with React and Node.js</li>
+                        <li><strong>Desktop Application Development:</strong> Creating interactive games and applications using C# and WPF</li>
+                        <li><strong>Web Development:</strong> Designing responsive, user-friendly websites with modern frameworks</li>
+                        <li><strong>Database Design:</strong> Implementing efficient data management with PostgreSQL and SQL Server</li>
+                    </ul>
+
+                    <h3>Career Goals</h3>
+                    <p>
+                        I am seeking internship and entry-level software development opportunities where I can 
+                        contribute to meaningful projects and continue growing my technical skills. I am particularly 
+                        interested in full-stack development roles and companies that value innovation and clean code.
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="project">
-                <h3>Project Name 3</h3>
-                <p>Brief description of another project you've worked on.</p>
-                <a href="https://github.com/yourusername/project3" target="_blank">View on GitHub →</a>
+    <!-- Quick Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>5+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h3>3+</h3>
+                    <p>Programming Languages</p>
+                </div>
+                <div class="stat-card">
+                    <h3>2+</h3>
+                    <p>Years of Study</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: your.email@example.com</p>
-            <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-        </section>
-    </div>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Massimo Padula. All rights reserved.</p>
+            <p>Built with HTML, CSS, and hosted on GitHub Pages</p>
+        </div>
     </footer>
 </body>
 </html>
