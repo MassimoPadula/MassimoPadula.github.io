@@ -1,77 +1,773 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Massimo Padula - Software Developer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">Massimo Padula</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Massimo Padula - Software Developer</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css"
+        />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Massimo Padula</span></h1>
-            <h2>Software Developer & Computer Science Student</h2>
-            <p class="hero-description">
-                Building innovative solutions
-            </p>
-            <div class="hero-buttons">
-                <a href="projects.html" class="btn btn-primary">View My Work</a>
-                <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-    </section>
+            :root {
+                --blue: #0066cc;
+                --blue-dark: #004c99;
+                --blue-light: #3399ff;
+                --black: #0a0a0a;
+                --dark-gray: #1a1a1a;
+                --text-light: #ffffff;
+                --text-muted: #b0b0b0;
+                --card-bg: rgba(26, 26, 26, 0.95);
+            }
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Background</h3>
-                    <p>
-                        I am currently a student in the <strong>Computer Science program</strong> 
-                        at John Abbott College (August 2023-2026), with a focus on full-stack development 
-                        and software engineering. I have achieved academic excellence by making the Dean's 
-                        List four times, demonstrating my commitment to learning and technical growth.
-                    </p>
-                    
-                    <h3>Professional Interests</h3>
-                    <p>
-                        I am passionate about creating practical applications that solve real-world problems. 
-                        My main interests include:
-                    </p>
-                    <ul class="interests-list">
-                        <li><strong>Full-Stack Development:</strong> Building complete web applications with React and Node.js</li>
-                        <li><strong>Desktop Application Development:</strong> Creating interactive games and applications using C# and WPF</li>
-                        <li><strong>Web Development:</strong> Designing responsive, user-friendly websites with modern frameworks</li>
-                        <li><strong>Database Design:</strong> Implementing efficient data management with PostgreSQL and SQL Server</li>
-                    </ul>
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background: var(--black);
+                color: var(--text-light);
+                overflow-x: hidden;
+            }
 
-                    <h3>Career Goals</h3>
-                    <p>
-                        I am seeking internship and entry-level software development opportunities where I can 
-                        contribute to meaningful projects and continue growing my technical skills. I am particularly 
-                        interested in full-stack development roles and companies that value innovation and clean code.
-                    </p>
+            /* Main Container - Single Page Layout */
+            .main-container {
+                min-height: 100vh;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                padding: 0;
+            }
+
+            /* Header with Navigation */
+            header {
+                background: var(--dark-gray);
+                border-bottom: 2px solid var(--blue);
+                padding: 1.5rem 3rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: var(--blue);
+            }
+
+            .header-contact {
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .header-contact a {
+                color: var(--text-light);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s;
+            }
+
+            .header-contact a:hover {
+                color: var(--blue);
+            }
+
+            /* Content Grid - Everything Side by Side */
+            .content-grid {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                gap: 2rem;
+                padding: 2rem 3rem;
+                max-width: 1800px;
+                margin: 0 auto;
+            }
+
+            /* Left Column - Hero & Skills */
+            .left-column {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .hero-card {
+                background: var(--card-bg);
+                padding: 2rem;
+                border-radius: 15px;
+                border-left: 4px solid var(--blue);
+            }
+
+            .hero-card h1 {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+                color: var(--blue);
+            }
+
+            .hero-card .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                color: var(--text-muted);
+            }
+
+            .hero-card .tagline {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-buttons {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s;
+                text-align: center;
+                flex: 1;
+            }
+
+            .btn-primary {
+                background: var(--blue);
+                color: var(--text-light);
+            }
+
+            .btn-primary:hover {
+                background: var(--blue-light);
+                transform: translateY(-2px);
+            }
+
+            .btn-secondary {
+                background: transparent;
+                color: var(--blue);
+                border: 2px solid var(--blue);
+            }
+
+            .btn-secondary:hover {
+                background: var(--blue);
+                color: var(--text-light);
+            }
+
+            /* Skills Card */
+            .skills-card {
+                background: var(--card-bg);
+                padding: 2rem;
+                border-radius: 15px;
+                border-left: 4px solid var(--blue);
+            }
+
+            .skills-card h2 {
+                color: var(--blue);
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+            .skill-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .skill-group:last-child {
+                margin-bottom: 0;
+            }
+
+            .skill-group h3 {
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                margin-bottom: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .skills-icons {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .skill-icon {
+                transition: transform 0.3s;
+            }
+
+            .skill-icon:hover {
+                transform: translateY(-5px);
+            }
+
+            .skill-icon i {
+                font-size: 2.5rem;
+                display: block;
+                margin-bottom: 0.3rem;
+            }
+
+            .skill-icon span {
+                font-size: 0.75rem;
+                color: var(--text-muted);
+            }
+
+            /* Center Column - Projects */
+            .center-column {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .section-header {
+                color: var(--blue);
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+
+            .project-card {
+                background: var(--card-bg);
+                padding: 2rem;
+                border-radius: 15px;
+                border-left: 4px solid var(--blue);
+            }
+
+            .project-header {
+                margin-bottom: 1rem;
+            }
+
+            .project-header h3 {
+                color: var(--blue);
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .project-tag {
+                display: inline-block;
+                background: var(--blue);
+                color: var(--text-light);
+                padding: 0.4rem 1rem;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+
+            .project-card p {
+                line-height: 1.7;
+                margin-bottom: 1rem;
+                color: var(--text-muted);
+            }
+
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin: 1rem 0;
+            }
+
+            .tech-badge {
+                background: var(--dark-gray);
+                color: var(--blue);
+                padding: 0.4rem 0.8rem;
+                border-radius: 12px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                border: 1px solid var(--blue);
+            }
+
+            .features-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+                margin: 1rem 0;
+                list-style: none;
+            }
+
+            .features-list li {
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                padding-left: 1.2rem;
+                position: relative;
+            }
+
+            .features-list li::before {
+                content: "▸";
+                position: absolute;
+                left: 0;
+                color: var(--blue);
+            }
+
+            .project-link {
+                display: inline-block;
+                margin-top: 1rem;
+                padding: 0.7rem 1.5rem;
+                background: var(--blue);
+                color: var(--text-light);
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 600;
+                transition: all 0.3s;
+            }
+
+            .project-link:hover {
+                background: var(--blue-light);
+                transform: translateY(-2px);
+            }
+
+            /* Right Column - About & Contact */
+            .right-column {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-card {
+                background: var(--card-bg);
+                padding: 2rem;
+                border-radius: 15px;
+                border-left: 4px solid var(--blue);
+            }
+
+            .about-card h2 {
+                color: var(--blue);
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+            .info-item {
+                margin-bottom: 1.5rem;
+            }
+
+            .info-item h3 {
+                color: var(--text-light);
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .info-item p,
+            .info-item ul {
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .info-item ul {
+                list-style: none;
+                padding-left: 0;
+            }
+
+            .info-item li {
+                padding: 0.3rem 0;
+                padding-left: 1.2rem;
+                position: relative;
+            }
+
+            .info-item li::before {
+                content: "▸";
+                position: absolute;
+                left: 0;
+                color: var(--blue);
+            }
+
+            /* Contact Card */
+            .contact-card {
+                background: var(--card-bg);
+                padding: 2rem;
+                border-radius: 15px;
+                border-left: 4px solid var(--blue);
+            }
+
+            .contact-card h2 {
+                color: var(--blue);
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+            .contact-item {
+                margin-bottom: 1rem;
+                padding: 0.8rem;
+                background: var(--dark-gray);
+                border-radius: 8px;
+            }
+
+            .contact-item h3 {
+                color: var(--text-light);
+                font-size: 0.85rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .contact-item a {
+                color: var(--blue);
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.3s;
+            }
+
+            .contact-item a:hover {
+                color: var(--blue-light);
+            }
+
+            .contact-item p {
+                color: var(--text-muted);
+                font-size: 0.9rem;
+            }
+
+            /* Footer */
+            footer {
+                background: var(--dark-gray);
+                border-top: 2px solid var(--blue);
+                padding: 1.5rem 3rem;
+                text-align: center;
+                color: var(--text-muted);
+            }
+
+            /* Responsive */
+            @media (max-width: 1400px) {
+                .content-grid {
+                    grid-template-columns: 1fr 1.5fr 1fr;
+                }
+
+                .skills-icons {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .content-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                .features-list {
+                    grid-template-columns: 1fr;
+                }
+
+                .skills-icons {
+                    grid-template-columns: repeat(6, 1fr);
+                }
+
+                header {
+                    flex-direction: column;
+                    gap: 1rem;
+                    text-align: center;
+                }
+
+                .header-contact {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .content-grid {
+                    padding: 1rem;
+                }
+
+                header {
+                    padding: 1rem;
+                }
+
+                .hero-card h1 {
+                    font-size: 2rem;
+                }
+
+                .skills-icons {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- Header -->
+            <header>
+                <div class="logo">Massimo Padula</div>
+                <div class="header-contact">
+                    <a href="mailto:padmass2006@gmail.com">📧 Email</a>
+                    <a
+                        href="https://www.linkedin.com/in/massimopadula"
+                        target="_blank"
+                        >💼 LinkedIn</a
+                    >
+                    <a href="https://github.com/MassimoPadula" target="_blank"
+                        >💻 GitHub</a
+                    >
+                </div>
+            </header>
+
+            <!-- Main Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Hero -->
+                    <div class="hero-card">
+                        <h1>Software Developer</h1>
+                        <p class="subtitle">Computer Science Student</p>
+                        <p class="tagline">
+                            Building innovative full-stack solutions with modern
+                            technologies. Currently studying at John Abbott
+                            College with a focus on web and desktop application
+                            development.
+                        </p>
+                        <div class="cta-buttons">
+                            <a
+                                href="mailto:padmass2006@gmail.com"
+                                class="btn btn-primary"
+                                >Contact Me</a
+                            >
+                            <a
+                                href="https://github.com/MassimoPadula"
+                                target="_blank"
+                                class="btn btn-secondary"
+                                >View GitHub</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="skills-card">
+                        <h2>Technical Skills</h2>
+
+                        <div class="skill-group">
+                            <h3>Languages</h3>
+                            <div class="skills-icons">
+                                <div class="skill-icon">
+                                    <i class="devicon-csharp-plain colored"></i>
+                                    <span>C#</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i class="devicon-python-plain colored"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i
+                                        class="devicon-javascript-plain colored"
+                                    ></i>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i
+                                        class="devicon-typescript-plain colored"
+                                    ></i>
+                                    <span>TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <h3>Frameworks</h3>
+                            <div class="skills-icons">
+                                <div class="skill-icon">
+                                    <i
+                                        class="devicon-react-original colored"
+                                    ></i>
+                                    <span>React</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i class="devicon-nodejs-plain colored"></i>
+                                    <span>Node.js</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i class="devicon-express-original"></i>
+                                    <span>Express</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i
+                                        class="devicon-tailwindcss-original colored"
+                                    ></i>
+                                    <span>Tailwind</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <h3>Databases</h3>
+                            <div class="skills-icons">
+                                <div class="skill-icon">
+                                    <i
+                                        class="devicon-postgresql-plain colored"
+                                    ></i>
+                                    <span>PostgreSQL</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i
+                                        class="devicon-mongodb-plain colored"
+                                    ></i>
+                                    <span>MongoDB</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i class="devicon-sqlite-plain colored"></i>
+                                    <span>SQLite</span>
+                                </div>
+                                <div class="skill-icon">
+                                    <i
+                                        class="devicon-microsoftsqlserver-plain colored"
+                                    ></i>
+                                    <span>SQL Server</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column - Projects -->
+                <div class="center-column">
+                    <h2 class="section-header">Featured Projects</h2>
+
+                    <!-- FitLife -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>FitLife - Fitness Tracker</h3>
+                            <span class="project-tag"
+                                >Full-Stack Development</span
+                            >
+                        </div>
+                        <p>
+                            A comprehensive fitness tracking application
+                            enabling users to log workouts, sets, and reps with
+                            streak tracking to maintain consistency.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Express.js</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                        </div>
+
+                        <ul class="features-list">
+                            <li>Session-based authentication</li>
+                            <li>Personalized dashboards</li>
+                            <li>Interactive calendar</li>
+                            <li>Streak tracking system</li>
+                            <li>Workout logging</li>
+                            <li>Responsive UI design</li>
+                        </ul>
+
+                        <a
+                            href="https://github.com/MassimoPadula/FitLife"
+                            target="_blank"
+                            class="project-link"
+                            >View on GitHub →</a
+                        >
+                    </div>
+
+                    <!-- DOOBER -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>DOOBER - Ride Sharing App</h3>
+                            <span class="project-tag"
+                                >Full-Stack Development</span
+                            >
+                        </div>
+                        <p>
+                            A modern ride-sharing application featuring
+                            real-time updates, user authentication, and
+                            interactive mapping capabilities.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+
+                        <ul class="features-list">
+                            <li>Real-time ride matching</li>
+                            <li>User profiles & auth</li>
+                            <li>Interactive maps</li>
+                            <li>Responsive design</li>
+                            <li>RESTful API</li>
+                            <li>Modern UI/UX</li>
+                        </ul>
+
+                        <a
+                            href="https://github.com/nizzynas/DOOBER"
+                            target="_blank"
+                            class="project-link"
+                            >View on GitHub →</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- About -->
+                    <div class="about-card">
+                        <h2>About Me</h2>
+
+                        <div class="info-item">
+                            <h3>🎓 Education</h3>
+                            <p><strong>John Abbott College</strong></p>
+                            <p>DEC in Computer Science (2023-2026)</p>
+                            <p>Dean's List 4x</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>💡 Interests</h3>
+                            <ul>
+                                <li>Full-Stack Development</li>
+                                <li>Desktop Applications</li>
+                                <li>Database Design</li>
+                                <li>Web Development</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>🎯 Career Goals</h3>
+                            <p>
+                                Seeking internship and entry-level software
+                                development opportunities to contribute to
+                                meaningful projects and grow technical skills.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="contact-card">
+                        <h2>Contact Info</h2>
+
+                        <div class="contact-item">
+                            <h3>📧 Email</h3>
+                            <a href="mailto:padmass2006@gmail.com"
+                                >padmass2006@gmail.com</a
+                            >
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>💼 LinkedIn</h3>
+                            <a
+                                href="https://www.linkedin.com/in/massimopadula"
+                                target="_blank"
+                                >linkedin.com/in/massimopadula</a
+                            >
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>💻 GitHub</h3>
+                            <a
+                                href="https://github.com/MassimoPadula"
+                                target="_blank"
+                                >github.com/MassimoPadula</a
+                            >
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>📍 Location</h3>
+                            <p>Montreal, QC, Canada</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>📱 Phone</h3>
+                            <p>+1 (438) 521-6534</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Footer -->
+            <footer>
+                <p>&copy; 2024 Massimo Padula. All rights reserved.</p>
+            </footer>
         </div>
-    </section>
-</body>
+    </body>
 </html>
