@@ -5,14 +5,16 @@
 }
 
 :root {
-    --blue: #0066cc;
-    --blue-dark: #004c99;
-    --blue-light: #3399ff;
-    --black: #0a0a0a;
-    --dark-gray: #1a1a1a;
+    --blue: #0080ff;
+    --blue-dark: #0066cc;
+    --blue-light: #00b3ff;
+    --blue-glow: #0099ff;
+    --black: #000000;
+    --dark-gray: #0d0d0d;
     --text-light: #ffffff;
-    --text-muted: #b0b0b0;
-    --card-bg: rgba(26, 26, 26, 0.95);
+    --text-muted: #cccccc;
+    --card-bg: rgba(13, 13, 13, 0.98);
+    --card-border: rgba(0, 128, 255, 0.5);
 }
 
 body {
@@ -33,17 +35,19 @@ body {
 /* Header with Navigation */
 header {
     background: var(--dark-gray);
-    border-bottom: 2px solid var(--blue);
+    border-bottom: 3px solid var(--blue);
     padding: 1.5rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 128, 255, 0.3);
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--blue);
+    text-shadow: 0 0 20px rgba(0, 128, 255, 0.5);
 }
 
 .header-contact {
@@ -84,13 +88,15 @@ header {
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
-    border-left: 4px solid var(--blue);
+    border-left: 5px solid var(--blue);
+    box-shadow: 0 8px 32px rgba(0, 128, 255, 0.2);
 }
 
 .hero-card h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: var(--blue);
+    text-shadow: 0 0 30px rgba(0, 128, 255, 0.4);
 }
 
 .hero-card .subtitle {
@@ -129,6 +135,7 @@ header {
 .btn-primary:hover {
     background: var(--blue-light);
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 179, 255, 0.5);
 }
 
 .btn-secondary {
@@ -147,13 +154,15 @@ header {
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
-    border-left: 4px solid var(--blue);
+    border-left: 5px solid var(--blue);
+    box-shadow: 0 8px 32px rgba(0, 128, 255, 0.2);
 }
 
 .skills-card h2 {
     color: var(--blue);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
+    text-shadow: 0 0 20px rgba(0, 128, 255, 0.3);
 }
 
 .skill-group {
@@ -209,13 +218,21 @@ header {
     color: var(--blue);
     font-size: 2rem;
     margin-bottom: 0;
+    text-shadow: 0 0 25px rgba(0, 128, 255, 0.4);
 }
 
 .project-card {
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
-    border-left: 4px solid var(--blue);
+    border-left: 5px solid var(--blue);
+    box-shadow: 0 8px 32px rgba(0, 128, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 128, 255, 0.4);
+    transform: translateY(-5px);
 }
 
 .project-header {
@@ -226,6 +243,7 @@ header {
     color: var(--blue);
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(0, 128, 255, 0.3);
 }
 
 .project-tag {
@@ -298,6 +316,7 @@ header {
 .project-link:hover {
     background: var(--blue-light);
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 179, 255, 0.5);
 }
 
 /* Right Column - About & Contact */
@@ -311,13 +330,15 @@ header {
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
-    border-left: 4px solid var(--blue);
+    border-left: 5px solid var(--blue);
+    box-shadow: 0 8px 32px rgba(0, 128, 255, 0.2);
 }
 
 .about-card h2 {
     color: var(--blue);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
+    text-shadow: 0 0 20px rgba(0, 128, 255, 0.3);
 }
 
 .info-item {
@@ -360,13 +381,15 @@ header {
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
-    border-left: 4px solid var(--blue);
+    border-left: 5px solid var(--blue);
+    box-shadow: 0 8px 32px rgba(0, 128, 255, 0.2);
 }
 
 .contact-card h2 {
     color: var(--blue);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
+    text-shadow: 0 0 20px rgba(0, 128, 255, 0.3);
 }
 
 .contact-item {
@@ -401,10 +424,11 @@ header {
 /* Footer */
 footer {
     background: var(--dark-gray);
-    border-top: 2px solid var(--blue);
+    border-top: 3px solid var(--blue);
     padding: 1.5rem 3rem;
     text-align: center;
     color: var(--text-muted);
+    box-shadow: 0 -4px 20px rgba(0, 128, 255, 0.3);
 }
 
 /* Responsive */
